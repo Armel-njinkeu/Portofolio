@@ -1,0 +1,603 @@
+/* ========== VARIABLES DE COULEURS (pratique si tu veux changer le thème plus tard) ========== */
+:root {
+    --primary: #2e44af;
+    --primary-dark: #c2c0de;
+    --secondary: #ff6b6b;
+    --dark: #1e1e2f;
+    --light: #f8f9fa;
+    --white: #ffffff;
+    --gray: #6c757d;
+    --shadow: 0 10px 30px rgba(0,0,0,0.08);
+    --transition: all 0.3s ease;
+}
+
+/* ========== RESET GLOBAL ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: transparent;
+    color: var(--dark);
+    line-height: 1.6;
+    
+}
+
+/* ========== CONTAINER ========== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ========== NAVIGATION (fixe en haut) ========== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    z-index: 1000;
+    padding: 0.8rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+}
+
+/* Nom en haut à gauche */
+.description h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin: 0;
+}
+
+/* Menu */
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    padding: 5px 0;
+    transition: var(--transition);
+}
+
+/* Effet de soulignement au survol */
+.navbar a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: var(--transition);
+}
+
+.navbar a:hover {
+    color: var(--primary);
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+/* ========== BOUTON HAMBURGER (mobile) ========== */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--dark);
+    cursor: pointer;
+}
+
+/* ========== SECTIONS GÉNÉRALES ========== */
+section {
+    padding: 100px 0 60px; /* espace pour la barre fixe */
+}
+
+/* Titre des sections */
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--secondary);
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+/* ========== ACCUEIL (hero) ========== */
+.acceuil {
+    background: linear-gradient(135deg, #6C63FF10, #ff6b6b10);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin: 2rem auto;
+    max-width: 900px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.acceuil:hover {
+    transform: translateY(-5px);
+}
+
+.acceuil h4 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+}
+
+.acceuil ul {
+    list-style: none;
+    padding: 0;
+}
+
+.acceuil li {
+    font-size: 1.1rem;
+    color: var(--gray);
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.acceuil li::before {
+    content: "▹";
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* ========== PROJETS ========== */
+.projets {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin: 2rem auto;
+    max-width: 900px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.projets:hover {
+    transform: translateY(-5px);
+}
+
+.projets h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--dark);
+}
+
+/* Bouton personnalisé */
+.btn-primary {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    box-shadow: 0 6px 20px rgba(108, 99, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* ========== COMPÉTENCES ========== */
+.skills-section {
+    background: var(--light);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin: 2rem auto;
+    max-width: 900px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.skill {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 1.5rem 1.2rem;
+    min-width: 100px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    cursor: default;
+}
+
+.skill:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(108, 99, 255, 0.15);
+}
+
+.skill i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.skill span {
+    display: block;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--dark);
+}
+
+/* ========== CONTACT ========== */
+.contact-section {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin: 2rem auto;
+    max-width: 700px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form label {
+    font-weight: 500;
+    margin-top: 10px;
+    color: var(--dark);
+}
+
+.form input,
+.form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form input:focus,
+.form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+}
+
+.form textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+/* Boutons */
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    margin: 10px 5px;
+}
+
+#submit {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+}
+
+#submit:hover {
+    background: var(--primary-dark);
+    box-shadow: 0 6px 20px rgba(108, 99, 255, 0.5);
+}
+
+#reset {
+    background: transparent;
+    color: var(--gray);
+    border: 2px solid #ccc;
+}
+
+#reset:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* ========== BANNIÈRE DE CONFIRMATION ========== */
+.confirmation-message {
+    background: #27ae60;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2000;
+    font-weight: 600;
+    display: none;
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from { top: -60px; }
+    to { top: 0; }
+}
+
+/* ========== FOOTER ========== */
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.socials a {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.socials a:hover {
+    color: var(--primary);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    header {
+        padding: 0.8rem 1rem;
+    }
+
+    .description h2 {
+        font-size: 1rem;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
+        border-radius: 0 0 15px 15px;
+        gap: 1rem;
+    }
+
+    .navbar ul.active {
+        display: flex;
+    }
+
+    .navbar a {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 80px 15px 30px;
+    }
+
+    .acceuil, .projets, .skills-section, .contact-section {
+        margin: 1rem;
+        padding: 2rem 1rem;
+    }
+
+    .acceuil h4 {
+        font-size: 1.4rem;
+    }
+}
+/* ========== ANIMATIONS PERSONNALISÉES ========== */
+
+/* ---------- 1. Apparition en fondu (fade-in) pour les sections ---------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Applique l'animation à chaque section au chargement */
+.acceuil,
+.projets,
+.skills-section,
+.contact-section {
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+/* Optionnel : délai progressif pour un joli cascade */
+.acceuil        { animation-delay: 0.1s; }
+.projets        { animation-delay: 0.3s; }
+.skills-section { animation-delay: 0.5s; }
+.contact-section { animation-delay: 0.7s; }
+
+/* ---------- 2. Effet machine à écrire (sur #typed-text) ---------- */
+/* Le curseur clignotant */
+#typed-text::after {
+  content: '|';
+  animation: blink 1s infinite;
+  color: var(--primary);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+/* ---------- 3. Pulsation douce sur le bouton "Voir mes projets" ---------- */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3); }
+  50%      { transform: scale(1.05); box-shadow: 0 8px 25px rgba(108, 99, 255, 0.5); }
+}
+
+.btn-primary {
+  animation: pulse 2s infinite;
+}
+
+/* On retire l'animation au survol pour éviter de superposer les effets */
+.btn-primary:hover {
+  animation: none;
+}
+
+/* ---------- 4. Rebond au survol des compétences ---------- */
+.skill {
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.skill:hover {
+  transform: scale(1.15) rotate(2deg);
+}
+
+/* ---------- 5. Apparition de la bannière de confirmation ---------- */
+@keyframes slideDown {
+  from { top: -60px; opacity: 0; }
+  to   { top: 0; opacity: 1; }
+}
+
+.confirmation-message {
+  animation: slideDown 0.5s ease-out;
+}
+
+/* ---------- 6. Rotation douce des icônes sociales ---------- */
+.socials a i {
+  transition: transform 0.3s ease;
+}
+
+.socials a:hover i {
+  transform: rotate(360deg);
+}
+
+/* ---------- 7. Dégradé animé sur ton nom dans le header ---------- */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.description h2 {
+  background: linear-gradient(45deg, #6C63FF, #ff6b6b, #6C63FF);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s linear infinite;
+}/* ========== FOOTER – BANDEAU DÉFILANT ========== */
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 1rem 0 0.5rem;
+    margin-top: 3rem;
+    overflow: hidden; /* cache tout dépassement au cas où */
+}
+
+/* Conteneur du bandeau */
+.footer-ticker {
+    width: 100%;
+    overflow: hidden;  /* masque les textes en dehors */
+    white-space: nowrap;
+    margin-bottom: 0.8rem;
+}
+
+/* Ruban qui contient les deux textes */
+.ticker-wrap {
+    display: flex;
+    animation: tickerScroll 20s linear infinite;
+}
+
+/* Style des textes */
+.ticker-text {
+    flex-shrink: 0;    /* empêche le rétrécissement */
+    margin: 0;
+    padding: 0 2rem;   /* espace entre les répétitions */
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    color: #ffffffcc;
+}
+
+/* Animation de défilement */
+@keyframes tickerScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* On décale de -50% car on a 2 copies : 
+           la moitié du ruban total sera sortie, 
+           puis l'animation redémarre */
+        transform: translateX(-50%);
+    }
+}
+
+/* Optionnel : arrêter le défilement au survol */
+.footer-ticker:hover .ticker-wrap {
+    animation-play-state: paused;
+}
+.image img{
+    width: 250px;
+    height: 250px;
+    display: flexbox;
+    flex-direction: row;
+    border-radius: 5%;
+}
+.ma-photo img{
+    width: 400px;
+    height: 400px;
+    border-radius: 12px;
+    padding-top: 40px;
+    margin: 30px;
+}
