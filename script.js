@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       // Envoi à Formspree (⚠️ REMPLACE TON_ID par ton identifiant)
-      fetch('https://formspree.io/f/F2.sg55DsAGLj$i', {
+      fetch('https://formspree.io/f/xdaqpboo',{
         method: 'POST',
         headers: {
           'Accept': 'application/json'
